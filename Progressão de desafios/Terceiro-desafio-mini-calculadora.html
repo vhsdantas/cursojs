@@ -6,6 +6,34 @@
     <title>Mini calculadora</title>
 
     <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        h1{
+            margin: 10px 10px 10px 50px;
+            padding: 20px;
+        }
+
+        input{
+            margin: 10px;
+        }
+
+        input#txtn1, input#txtn2{
+            margin: 5px;
+            padding: 10px;
+        }
+
+        input.button{
+            margin: 5px 5px 5px 13px;
+            height: 40px;
+            width: 80px;
+        }
+
+        div#res{
+            margin-top: 20px;
+        }
 
     </style>
 </head>
@@ -13,10 +41,10 @@
     <h1>Mini Calculadora!</h1>
     <input type="number" name="txtn1" id="txtn1">
     <input type="number" name="txtn2" id="txtn2"><br>
-    <input type="button" value="Somar" onclick="somar()">
-    <input type="button" value="Subtrair" onclick="subtrair()">
-    <input type="button" value="Multiplicar" onclick="multiplicar()">
-    <input type="button" value="Dividir" onclick="dividir()">
+    <input class="button" type="button" value="Somar" onclick="somar()">
+    <input class="button" type="button" value="Subtrair" onclick="subtrair()">
+    <input class="button" type="button" value="Multiplicar" onclick="multiplicar()">
+    <input class="button" type="button" value="Dividir" onclick="dividir()">
     <div id="res">
         Resultado
     </div>
