@@ -17,7 +17,9 @@
         }
 
         input{
-            margin: 10px;
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
         }
 
         input#txtn1, input#txtn2{
@@ -26,13 +28,15 @@
         }
 
         input.button{
-            margin: 5px 5px 5px 13px;
-            height: 40px;
-            width: 80px;
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
         }
 
         div#res{
-            margin-top: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 20px;
         }
 
     </style>
@@ -50,12 +54,17 @@
     </div>
 
     <script>
+        function PegarValores(){
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            return[n1, n2]
+        }
+
         function somar(){
             var tn1 = document.getElementById('txtn1')
             var tn2 = document.getElementById('txtn2')
             var res = document.getElementById('res')
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)
+            const [n1, n2] = pegarValores()
             var s = n1 + n2
             res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${s}</strong>`
         }
@@ -64,8 +73,7 @@
             var tn1 = document.getElementById('txtn1')
             var tn2 = document.getElementById('txtn2')
             var res = document.getElementById('res')
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)
+            const [n1, n2] = pegarValores()
             var s = n1 - n2
             res.innerHTML = `A subtração entre ${n1} e ${n2} é igual a <strong>${s}</strong>`
         }
@@ -74,8 +82,7 @@
             var tn1 = document.getElementById('txtn1')
             var tn2 = document.getElementById('txtn2')
             var res = document.getElementById('res')
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)
+            const [n1, n2] = pegarValores()
             var s = n1 * n2
             res.innerHTML = `A multiplicação entre ${n1} e ${n2} é igual a <strong>${s}</strong>`
         }
@@ -84,8 +91,7 @@
             var tn1 = document.getElementById('txtn1')
             var tn2 = document.getElementById('txtn2')
             var res = document.getElementById('res')
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)
+            const [n1, n2] = pegarValores()
             if (n2 == 0){
                 alert('Não é possível realizar a divisão')
             }
