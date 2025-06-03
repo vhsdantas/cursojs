@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Moedas</title>
+
+    <style>
+        body > input#txtn1, input#txtn2{
+            margin-bottom: 10px;
+            border: solid rgba(221, 221, 221, 0.322);
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Moedas</h1>
+    R$<input type="number" name="txtn1" id="txtn1"><br>
+    Qual a cotação atual da moeda que deseja ver a conversão? <input type="number" name="txtn2" id="txtn2"><br>
+    <input type="button" value="Dólar" onclick="dolar()">
+    <input type="button" value="Euro" onclick="euro()">
+    <input type="button" value="Bitcoin" onclick="bitcoin()">
+    <div id="res">
+
+    </div>
+
+    <script>
+        function pegarValores(){
+            var rs = document.getElementById('txtn1')
+            var cot = document.getElementById('txtn2')
+            var n1 = Number(rs.value)
+            var n2 = Number(cot.value)
+            return[n1, n2]
+        }
+
+        function dolar(){
+            var res = document.getElementById('res')
+            const[n1, n2] = pegarValores()
+            var r = n1 * n2
+            res.innerHTML = `O valor de R$${n1.toFixed(2)} convertido ficará $${r.toFixed(2)}`
+        }
+
+        function euro(){
+            var res = document.getElementById('res')
+            const[n1, n2] = pegarValores()
+            var r = n1 * n2
+            res.innerHTML = `O valor de R$${n1.toFixed(2)} convertido ficará €${r.toFixed(2)}`
+        }
+
+        function bitcoin(){
+            var res = document.getElementById('res')
+            const[n1, n2] = pegarValores()
+            var r = n1 * n2
+            res.innerHTML = `O valor de R$${n1.toFixed(2)} convertido ficará BTC${r.toFixed(2)}`
+        }
+    </script>
+
+</body>
+</html>
