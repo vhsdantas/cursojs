@@ -16,9 +16,9 @@
     <h1>Conversor de Moedas</h1>
     R$<input type="number" name="txtn1" id="txtn1"><br>
     Qual a cotação atual da moeda que deseja ver a conversão? <input type="number" name="txtn2" id="txtn2"><br>
-    <input type="button" value="Dólar" onclick="dolar()">
-    <input type="button" value="Euro" onclick="euro()">
-    <input type="button" value="Bitcoin" onclick="bitcoin()">
+    <input type="button" value="Dólar" onclick="converter('$')">
+    <input type="button" value="Euro" onclick="converter('€')">
+    <input type="button" value="Bitcoin" onclick="converter('₿')">
     <div id="res">
 
     </div>
@@ -32,25 +32,16 @@
             return[n1, n2]
         }
 
-        function dolar(){
-            var res = document.getElementById('res')
-            const[n1, n2] = pegarValores()
-            var r = n1 * n2
-            res.innerHTML = `O valor de R$${n1.toFixed(2)} convertido ficará $${r.toFixed(2)}`
-        }
+        function converter(simbolo) {
+            var res = document.getElementById('res');
+            const [n1, n2] = pegarValores();
 
-        function euro(){
-            var res = document.getElementById('res')
-            const[n1, n2] = pegarValores()
-            var r = n1 * n2
-            res.innerHTML = `O valor de R$${n1.toFixed(2)} convertido ficará €${r.toFixed(2)}`
-        }
-
-        function bitcoin(){
-            var res = document.getElementById('res')
-            const[n1, n2] = pegarValores()
-            var r = n1 * n2
-            res.innerHTML = `O valor de R$${n1.toFixed(2)} convertido ficará BTC${r.toFixed(2)}`
+            if (n2 === 0 || isNaN(n1) || isNaN(n2)) {
+                res.innerHTML = 'Cotação inválida ou valor não informado.';
+            } else {
+                var r = n1 * n2;
+                res.innerHTML = `O valor de R$${n1.toFixed(2)} convertido ficará ${simbolo}${r.toFixed(2)}`;
+            }
         }
     </script>
 
